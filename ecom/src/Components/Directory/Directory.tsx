@@ -1,5 +1,5 @@
 import React from 'react'
-import { MenuItem } from '../Menu/MenuItem';
+import  MenuItem  from '../Menu/MenuItem';
 import {sections} from '../../Constants/ShopData'
 import './Directory.scss'
 interface states{
@@ -8,8 +8,9 @@ interface states{
                 title:string,
                 imageUrl:string,
                 id:number
-                linkUrl:string
-                size?:string
+                linkUrl:string,
+                size?:string,
+
             }[]
          
 }
@@ -42,8 +43,8 @@ class Directory extends React.Component <{},states>  {
         return(
             <>
               <div className='directory-menu'>
-                  {this.state.section.map(({id,title,imageUrl,size})=>(
-                        <MenuItem key={id} title={title} imageUrl={imageUrl} size={size}/>
+                  {this.state.section.map(({id,...sectionProps})=>(
+                        <MenuItem key={id} {...sectionProps}/>
                   ))}
               </div>
                 
